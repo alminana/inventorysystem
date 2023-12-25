@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Supplier;
 use App\Models\Unit;
+use App\Models\Settings;
 use Auth;
 use Illuminate\Support\Carbon;
   
@@ -25,8 +26,9 @@ class ProductController extends Controller
 
         $supplier = Supplier::all();
         $category = Category::all();
+        $setting = Settings::all();
         $unit = Unit::all();
-        return view('backend.product.product_add',compact('supplier','category','unit'));
+        return view('backend.product.product_add',compact('supplier','category','unit','setting'));
     } // End Method 
 
 

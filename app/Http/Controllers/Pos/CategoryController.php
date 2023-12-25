@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Auth;
+use App\Models\Settings;
 use Illuminate\Support\Carbon;
 
 
@@ -14,7 +15,8 @@ class CategoryController extends Controller
     public function CategoryAll(){
 
         $categoris = Category::latest()->get();
-        return view('backend.category.category_all',compact('categoris'));
+        $setting = Settings::all();
+        return view('backend.category.category_all',compact('categoris','setting'));
 
     } // End Mehtod 
 

@@ -9,6 +9,7 @@ use App\Models\Supplier;
 use App\Models\Product;
 use App\Models\Unit;
 use App\Models\Category;
+use App\Models\Settings;
 use Auth;
 use Illuminate\Support\Carbon;
 
@@ -32,6 +33,7 @@ class InvoiceController extends Controller
 
 
         $category = Category::all();
+        $setting = Settings::all();
         $costomer = Customer::all();
         $invoice_data = Invoice::orderBy('id','desc')->first();
         if ($invoice_data == null) {
@@ -42,7 +44,7 @@ class InvoiceController extends Controller
             $invoice_no = $invoice_data+1;
         }
         $date = date('Y-m-d');
-        return view('backend.invoice.invoice_add',compact('invoice_no','category','date','costomer'));
+        return view('backend.invoice.invoice_add',compact('invoice_no','category','date','costomer','setting'));
 
     } // End Method
 
@@ -223,15 +225,16 @@ class InvoiceController extends Controller
 
 
     public function PrintInvoiceList(){
-
+        $setting = Settings::latest()->get();
     $allData = Invoice::orderBy('date','desc')->orderBy('id','desc')->where('status','1')->get();
-       return view('backend.invoice.print_invoice_list',compact('allData'));
+       return view('backend.invoice.print_invoice_list',compact('allData','setting'));
     } // End Method
 
 
     public function PrintInvoice($id){
+        $setting = Settings::latest()->get();
         $invoice = Invoice::with('invoice_details')->findOrFail($id);
-        return view('backend.pdf.invoice_pdf',compact('invoice'));
+        return view('backend.pdf.invoice_pdf',compact('invoice','setting'));
 
     } // End Method
 
@@ -242,7 +245,7 @@ class InvoiceController extends Controller
 
 
     public function DailyInvoicePdf(Request $request){
-
+        $setting = Settings::latest()->get();
         $sdate = date('Y-m-d',strtotime($request->start_date));
         $edate = date('Y-m-d',strtotime($request->end_date));
         $allData = Invoice::whereBetween('date',[$sdate,$edate])->where('status','1')->get();
@@ -250,7 +253,7 @@ class InvoiceController extends Controller
 
         $start_date = date('Y-m-d',strtotime($request->start_date));
         $end_date = date('Y-m-d',strtotime($request->end_date));
-        return view('backend.pdf.daily_invoice_report_pdf',compact('allData','start_date','end_date'));
+        return view('backend.pdf.daily_invoice_report_pdf',compact('allData','start_date','end_date','setting'));
     } // End Method
 
 

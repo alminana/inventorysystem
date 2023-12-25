@@ -27,32 +27,40 @@
                                 <div class="card">
                                     <div class="card-body">
         
-    <div class="row">
-        <div class="col-12">
-            <div class="invoice-title">
-                
-                <h3>
-                    <img src="{{ asset('backend/assets/images/logo-sm.png') }}" alt="logo" height="24"/> Easy Shopping Mall
-                </h3>
-            </div>
-            <hr>
-             
-            <div class="row">
-                <div class="col-6 mt-4">
-                    <address>
-                        <strong>Easy Shopping Mall:</strong><br>
-                        Purana Palton Dhaka<br>
-                        support@easylearningbd.com
-                    </address>
-                </div>
-                <div class="col-6 mt-4 text-end">
-                    <address>
-                       
-                    </address>
-                </div>
-            </div>
-        </div>
-    </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="invoice-title">
+                                                    
+                                                    <h3>
+                                                        @foreach($setting as $set)
+                                                        {{-- <img src="{{ asset('backend/assets/images/{{ $set->image }}') }}" alt="logo" height="24"/> --}}
+                                                        <img src="{{ asset( $set->image ) }}" style="width:60px; height:50px">                    
+                                                        {{ $set->companyname }}
+                                                        @endforeach
+                                                    </h3>
+                                                </div>
+                                                <hr>
+                                                 
+                                                <div class="row">
+                                                    <div class="col-6 margin-left-6">
+                                                        @foreach($setting as $set)
+                                                        <address>
+                                                           <label for="">Company Name: <strong>{{ $set->companyname }}</strong></label> <br>
+                                                           <label for="">Address: <strong>{{ $set->address }}</strong></label> <br>
+                                                           <label for="">Email: <strong>{{ $set->email }}</strong></label> <br>
+                                                           <label for="">Contact No.: <strong>{{ $set->tel }}</strong></label> <br>
+                                                           <label for="">Tin No.: <strong>{{ $set->tin }}</strong></label> <br>
+                                                        </address>
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="col-6 mt-4 text-end">
+                                                        <address>
+                                                           
+                                                        </address>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
       
 

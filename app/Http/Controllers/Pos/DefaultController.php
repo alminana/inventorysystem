@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Unit;
 use App\Models\Category;
 use App\Models\Invoice;
+use App\Models\Settings;
 use Auth;
 use Illuminate\Support\Carbon;
 

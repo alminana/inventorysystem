@@ -12,4 +12,8 @@ class Customer extends Model
     public function Settings(){
         return $this->hasMany(Setting::class,'setting_id','id');
     }
+
+    public function setting_details(){
+        return $this->hasMany(Setting::class,'setting_id','id');
+    }
 }

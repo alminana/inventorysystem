@@ -9,6 +9,7 @@ use App\Models\Supplier;
 use App\Models\Product;
 use App\Models\Unit;
 use App\Models\Category;
+use App\Models\Settings;
 use Auth;
 use Illuminate\Support\Carbon;
 
@@ -131,7 +132,7 @@ public function PurchaseUpdate(Request $request, Purchase $purchase ){
 
 
     public function DailyPurchasePdf(Request $request){
-
+        $setting = Settings::latest()->get();
         $sdate = date('Y-m-d',strtotime($request->start_date));
         $edate = date('Y-m-d',strtotime($request->end_date));
         $allData = Purchase::whereBetween('date',[$sdate,$edate])->where('status','1')->get();
@@ -139,7 +140,7 @@ public function PurchaseUpdate(Request $request, Purchase $purchase ){
 
         $start_date = date('Y-m-d',strtotime($request->start_date));
         $end_date = date('Y-m-d',strtotime($request->end_date));
-        return view('backend.pdf.daily_purchase_report_pdf',compact('allData','start_date','end_date'));
+        return view('backend.pdf.daily_purchase_report_pdf',compact('allData','start_date','end_date','setting'));
 
     }// End Method 
 

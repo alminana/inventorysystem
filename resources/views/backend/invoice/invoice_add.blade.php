@@ -34,7 +34,7 @@
        <div class="col-md-3">
             <div class="md-3">
                 <label for="example-text-input" class="form-label">Category Name </label>
-                <select name="category_id" id="category_id" class="form-select select2" aria-label="Default select example">
+                <select name="category_id"  id="category_id" class="form-select select2" aria-label="Default select example">
                 <option selected="">Open this select menu</option>
                   @foreach($category as $cat)
                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>
@@ -112,7 +112,9 @@
                 <tr>      
                     <td colspan="5">Vat</td>
                     <td>
-                    <input type="text" name="Vat" id="Vat" class="form-control estimated_amount" placeholder="Vat"  >
+                        @foreach($setting as $set)
+                            <input type="text" name="Vat" readonly  value="{{ $set->vat }}%" id="Vat" class="form-control estimated_amount" placeholder="Vat"  >
+                        @endforeach
                     </td>
                 </tr>            
                 <tr>

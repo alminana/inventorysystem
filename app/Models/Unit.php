@@ -9,4 +9,8 @@ class Unit extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function setting_details(){
+        return $this->hasMany(Setting::class,'setting_id','id');
+    }
 }

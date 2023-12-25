@@ -20,5 +20,7 @@ class Payment extends Model
     public function setting_details(){
         return $this->hasMany(Setting::class,'setting_id','id');
     }
+
+    
 } 
  

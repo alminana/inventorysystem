@@ -27,7 +27,9 @@ class Purchase extends Model
         return $this->belongsTo(Category::class,'category_id','id');
     }
 
-
+    public function setting_details(){
+        return $this->hasMany(Setting::class,'setting_id','id');
+    }
 
 }
  

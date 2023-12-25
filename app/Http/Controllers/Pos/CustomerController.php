@@ -135,26 +135,26 @@ class CustomerController extends Controller
 
 
     public function CreditCustomer(){
-
+        $setting = Settings::latest()->get();
         $allData = Payment::whereIn('paid_status',['full_due','partial_paid'])->get();
-        return view('backend.customer.customer_credit',compact('allData'));
+        return view('backend.customer.customer_credit',compact('allData','setting'));
 
     } // End Method
 
 
     public function CreditCustomerPrintPdf(){
-
+        $setting = Settings::latest()->get();
         $allData = Payment::whereIn('paid_status',['full_due','partial_paid'])->get();
-        return view('backend.pdf.customer_credit_pdf',compact('allData'));
+        return view('backend.pdf.customer_credit_pdf',compact('allData','setting'));
 
     }// End Method
 
 
 
     public function CustomerEditInvoice($invoice_id){
-
+        $setting = Settings::latest()->get();
         $payment = Payment::where('invoice_id',$invoice_id)->first();
-        return view('backend.customer.edit_customer_invoice',compact('payment'));
+        return view('backend.customer.edit_customer_invoice',compact('payment','setting'));
 
     }// End Method
 
@@ -205,43 +205,44 @@ class CustomerController extends Controller
 
 
     public function CustomerInvoiceDetails($invoice_id){
-
+        $setting = Settings::latest()->get();
         $payment = Payment::where('invoice_id',$invoice_id)->first();
-        return view('backend.pdf.invoice_details_pdf',compact('payment'));
+        return view('backend.pdf.invoice_details_pdf',compact('payment','setting'));
 
     }// End Method
 
     public function PaidCustomer(){
+        $setting = Settings::latest()->get();
         $allData = Payment::where('paid_status','!=','full_due')->get();
-        return view('backend.customer.customer_paid',compact('allData'));
+        return view('backend.customer.customer_paid',compact('allData','setting'));
     }// End Method
 
     public function PaidCustomerPrintPdf(){
-
+        $setting = Settings::latest()->get();
         $allData = Payment::where('paid_status','!=','full_due')->get();
-        return view('backend.pdf.customer_paid_pdf',compact('allData'));
+        return view('backend.pdf.customer_paid_pdf',compact('allData','setting'));
     }// End Method
 
 
     public function CustomerWiseReport(){
-
+        $setting = Settings::latest()->get();
         $customers = Customer::all();
-        return view('backend.customer.customer_wise_report',compact('customers'));
+        return view('backend.customer.customer_wise_report',compact('customers','setting'));
 
     }// End Method
 
 
     public function CustomerWiseCreditReport(Request $request){
-
+        $setting = Settings::latest()->get();
          $allData = Payment::where('customer_id',$request->customer_id)->whereIn('paid_status',['full_due','partial_paid'])->get();
-        return view('backend.pdf.customer_wise_credit_pdf',compact('allData'));
+        return view('backend.pdf.customer_wise_credit_pdf',compact('allData','setting'));
     }// End Method
 
 
     public function CustomerWisePaidReport(Request $request){
-
+        $setting = Settings::latest()->get();
          $allData = Payment::where('customer_id',$request->customer_id)->where('paid_status','!=','full_due')->get();
-        return view('backend.pdf.customer_wise_paid_pdf',compact('allData'));
+        return view('backend.pdf.customer_wise_paid_pdf',compact('allData','setting'));
     }// End Method
 
 
