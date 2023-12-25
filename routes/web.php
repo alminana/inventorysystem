@@ -195,7 +195,7 @@ Route::controller(DefaultController::class)->group(function () {
     Route::get('/check-product', 'GetStock')->name('check-product-stock'); 
     Route::get('/check-srp', 'GetSRP')->name('get-srp-price');
     Route::get('/check-cost', 'GetCost')->name('get-cost-price'); 
-    Route::get('/check-cost', 'GetExpiration')->name('get-expiration'); 
+    Route::get('/check-expiration', 'GetExpiration')->name('get-expiration'); 
      
 });
 
