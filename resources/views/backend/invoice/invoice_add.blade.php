@@ -113,7 +113,7 @@
                     <td colspan="5">Vat</td>
                     <td>
                         @foreach($setting as $set)
-                            <input type="text" name="Vat" readonly  value="{{ $set->vat }}%" id="Vat" class="form-control estimated_amount" placeholder="Vat"  >
+                            <input type="text" name="Vat" readonly  value="" id="Vat" class="form-control estimated_amount" placeholder="Vat"  data-vat="{{$set->vat}}">
                         @endforeach
                     </td>
                 </tr>            
@@ -134,7 +134,7 @@
                     <tr>
                         <td colspan="5"> Cash</td>
                         <td>
-                            <input type="text" name="cash" value="0" id="cash" class="form-control cash" readonly style="background-color: #ddd;" >
+                            <input type="text" name="cash" value="0" id="cash" class="form-control cash" >
                         </td>
                      
                     </tr>
@@ -324,22 +324,54 @@
         $(document).on("click",".removeeventmore",function(event){
             $(this).closest(".delete_add_more_item").remove();
             totalAmountPrice();
+            $('#discount_amount').trigger('keyup');
         });
 
         $(document).on('keyup click','.srp_price,.selling_qty','vat', function(){
             // let total = this.subtotal*this.vats.vat /100 + this.subtotal;
-            
+           
             var srp_price = $(this).closest("tr").find("input.srp_price").val();
             var qty = $(this).closest("tr").find("input.selling_qty").val();
             var vat = $(this).closest("tr").find("input.vat").val();
             var total = srp_price * qty;
+
             $(this).closest("tr").find("input.selling_price").val(total);
             $('#discount_amount').trigger('keyup');
         });
 
         $(document).on('keyup','#discount_amount',function(){
             totalAmountPrice();
+
+            var vatInput =  $('#Vat').data('vat');
+ 
+            var vatRate = 0;
+            if (!isNaN(vatInput)) {
+                if (Number.isInteger(parseFloat(vatInput))) {
+                    vatRate = (parseFloat(vatInput).toFixed(2) / 100);
+                } 
+            }
+
+            var totalAmountUpdated=parseFloat($('#estimated_amount').val());
+            console.log(totalAmountUpdated)
+            totalVat = totalAmountUpdated * vatRate;
+            $('#Vat').val(totalVat.toFixed(2));
         });
+        
+
+        // Calculate change
+        $('#cash').on('keyup',function(){
+            var amount = parseFloat($("#estimated_amount").val());
+            var cash = parseFloat($("#cash").val());
+            if (!isNaN(amount) && !isNaN(cash)) {
+                var change = cash - amount;
+                $("#Change").val(change.toFixed(2));
+            }else {
+                $("#Change").val("0");
+            }
+
+        });
+
+
 
         // Calculate sum of amout in invoice 
 

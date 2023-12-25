@@ -199,13 +199,11 @@ Route::controller(DefaultController::class)->group(function () {
      
 });
 
+Route::get('/dashboard', [StockController::class, 'Stockdashboard'])->name('dashboard');
 
- 
-
-
-Route::get('/dashboard', function () {
-    return view('admin.index');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('admin.index');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 

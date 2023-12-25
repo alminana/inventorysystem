@@ -36,9 +36,9 @@
 
 
   <div class="row mb-3">
-                <label for="example-text-input" class="col-sm-2 col-form-label">Customer Email </label>
+                <label for="example-text-input" class="col-sm-2 col-form-label">Customer ID </label>
                 <div class="form-group col-sm-10">
-                    <input name="email" class="form-control" type="email"  >
+                    <input name="id_no" class="form-control" type="text"  >
                 </div>
             </div>
             <!-- end row -->
@@ -97,7 +97,7 @@
                  mobile_no: {
                     required : true,
                 },
-                 email: {
+                id_no: {
                     required : true,
                 },
                  address: {
@@ -114,8 +114,8 @@
                 mobile_no: {
                     required : 'Please Enter Your Mobile Number',
                 },
-                email: {
-                    required : 'Please Enter Your Email',
+                id_no: {
+                    required : 'Please Enter Your Id No.',
                 },
                 address: {
                     required : 'Please Enter Your Address',

@@ -38,7 +38,7 @@ class CustomerController extends Controller
         Customer::insert([
             'name' => $request->name,
             'mobile_no' => $request->mobile_no,
-            'email' => $request->email,
+            'id' => $request->id,
             'address' => $request->address,
             'customer_image' => $save_url ,
             'created_by' => Auth::user()->id,
@@ -77,7 +77,7 @@ class CustomerController extends Controller
         Customer::findOrFail($customer_id)->update([
             'name' => $request->name,
             'mobile_no' => $request->mobile_no,
-            'email' => $request->email,
+            'id' => $request->id,
             'address' => $request->address,
             'customer_image' => $save_url ,
             'updated_by' => Auth::user()->id,
@@ -97,7 +97,7 @@ class CustomerController extends Controller
           Customer::findOrFail($customer_id)->update([
             'name' => $request->name,
             'mobile_no' => $request->mobile_no,
-            'email' => $request->email,
+            'id' => $request->id,
             'address' => $request->address, 
             'updated_by' => Auth::user()->id,
             'updated_at' => Carbon::now(),

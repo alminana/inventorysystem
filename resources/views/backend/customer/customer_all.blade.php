@@ -34,7 +34,7 @@
                             <th>Sl</th>
                             <th>Name</th> 
                             <th>Customer Image </th>
-                            <th>Email</th>
+                            <th>Id No.</th>
                             <th>Address</th> 
                             <th>Action</th>
                             
@@ -48,7 +48,7 @@
                             <td> {{ $key+1}} </td>
                             <td> {{ $item->name }} </td> 
            <td> <img src="{{ asset( $item->customer_image ) }}" style="width:60px; height:50px"> </td> 
-                              <td> {{ $item->email }} </td> 
+                              <td> {{ $item->id_no }} </td> 
                                <td> {{ $item->address }} </td> 
                             <td>
    <a href="{{ route('customer.edit',$item->id) }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
