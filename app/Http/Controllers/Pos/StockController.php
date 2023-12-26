@@ -19,7 +19,7 @@ class StockController extends Controller
     public function PurchasePending(){
 
         $allData = Purchase::orderBy('date','desc')->orderBy('id','desc')->where('status','0')->get();
-        return view('dmin.index',compact('allData'));
+        return view('admin.index',compact('allData'));
     }// End Method 
 
         public function Stockdashboard(){

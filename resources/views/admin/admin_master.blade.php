@@ -34,7 +34,10 @@
         <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  
+        <link href="{{ asset('backend/assets/plugins/datatable/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+        
     </head>
 
     <body data-topbar="dark">
@@ -135,6 +138,8 @@
         <script src="{{ asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
             <!-- Datatable init js -->
+            <script src="{{ asset('backend/assets/plugins/datatable/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ asset('backend/assets/plugins/datatable//datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
 
 <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
@@ -153,6 +158,88 @@
 <script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
 <!-- end  For Select2 -->
 
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<script>
+
+    $("input:checkbox").attr("checked",false).click(function(){
+                var shcolumn="."+$(this).attr("name");
+                $(shcolumn).toggle();
+            });
+    
+    $(document).ready(function() {
+        $('#tbAdresse ').DataTable( {
+    
+            dom: 'Bfrtip',
+            buttons: [
+                'print','excel','pdf','copy'
+            ]
+        } );
+    } );
+    
+    $(document).ready(function() {
+        
+    
+    
+        // Setup - add a text input to each header cell
+        $('#tbAdresse thead th').each(function() 
+        
+        {
+            var title = $(this).text();
+            $(this).html('<input type="text"   placeholder="Search ' + title + '" />');
+            
+        });
+    
+        // DataTable
+        var table = $('#tbAdresse').DataTable();
+        
+        //Entires
+    
+    
+        // Apply the search
+        table.columns().every(function() {
+            var that = this;
+    
+            $('input', this.header()).on('keypress change', function(e) {
+                
+            var keycode = e.which;
+            //launch search action only when enter is pressed
+            if (keycode == '13') {
+                console.log('enter key pressed !')
+                if (that.search() !== this.value) {
+                that
+                    .search(this.value)
+                    .draw();
+                }
+            }
+    
+            });
+        });
+        });
+    
+        $(function() {                   
+                 $("#start-date").datepicker({
+                  dateFormat: "dd/mm/yy",
+                   maxDate: 0,
+                  onSelect: function (date) {
+                      var dt2 = $('#end-date');
+                      var startDate = $(this).datepicker('getDate');
+                      var minDate = $(this).datepicker('getDate');
+                      if (dt2.datepicker('getDate') == null){
+                        dt2.datepicker('setDate', minDate);
+                      }              
+                      //dt2.datepicker('option', 'maxDate', '0');
+                      dt2.datepicker('option', 'minDate', minDate);
+                  }
+                });
+                $('#end-date').datepicker({
+                    dateFormat: "dd/mm/yy",
+                    maxDate: 0
+                });           
+             });
+        
+    
+    
+    </script>
     </body>
 
 </html>
