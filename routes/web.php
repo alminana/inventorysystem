@@ -177,6 +177,8 @@ Route::controller(SettingsController::class)->group(function () {
     Route::get('/setting/edit/{id}', 'SettingEdit')->name('setting.edit');
     Route::post('/setting/update', 'SettingUpdate')->name('setting.update');
     Route::get('/setting/delete/{id}', 'SettingDelete')->name('setting.delete');
+    Route::get('/user', 'AccountAll')->name('user.all');
+    Route::post('/user/add', 'AccountAdd')->name('user.add');
 
  
 });
@@ -199,7 +201,8 @@ Route::controller(DefaultController::class)->group(function () {
      
 });
 
-Route::get('/dashboard', [StockController::class, 'Stockdashboard'])->name('dashboard');
+Route::get('/dashboard', [StockController::class, 'Stockdashboard'])->middleware(['auth'])->name('dashboard');
+
 
 // Route::get('/dashboard', function () {
 //     return view('admin.index');

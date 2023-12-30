@@ -97,7 +97,7 @@
             <td class="text-center"><strong>Purchase No </strong></td>
             <td class="text-center"><strong>Date  </strong>
             </td>
-            <td class="text-center"><strong>Generic Name</strong>
+            <td class="text-center"><strong>Brand</strong>
             </td>
             <td class="text-center"><strong>Quantity</strong>
             </td>

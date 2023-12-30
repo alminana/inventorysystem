@@ -38,7 +38,7 @@
 
              <tr>
              <td></td>
-              <td colspan="3"><p> Description : <strong> {{ $invoice->description  }} </strong> </p></td>
+              <td colspan="3"><p> Cashier : <strong> {{ $invoice->description  }} </strong> </p></td>
              </tr>
         </tbody>
          

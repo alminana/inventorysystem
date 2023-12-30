@@ -34,8 +34,8 @@
                             <th>Sl</th>
                             <th>Supplier Name </th>
                             <th>Unit</th>
-                            <th>Category</th> 
-                            <th>Product Name</th> 
+                            <th>Generic</th> 
+                            <th>Brand</th> 
                             <th>In Qty</th> 
                             <th>Out Qty </th>  
                             <th>Stock </th>

@@ -21,7 +21,7 @@
         
 
             <div class="row mb-3">
-                <label for="example-text-input" class="col-sm-2 col-form-label">Product Name </label>
+                <label for="example-text-input" class="col-sm-2 col-form-label">Brand</label>
                 <div class="form-group col-sm-10">
                     <input name="name" value="{{ $product->name }}" class="form-control" type="text"    >
                 </div>
@@ -58,7 +58,7 @@
 
 
       <div class="row mb-3">
-        <label class="col-sm-2 col-form-label">Category Name </label>
+        <label class="col-sm-2 col-form-label">Drug Name </label>
         <div class="col-sm-10">
             <select name="category_id" class="form-select" aria-label="Default select example">
                 <option selected="">Open this select menu</option>

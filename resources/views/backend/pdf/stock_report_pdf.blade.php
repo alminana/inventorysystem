@@ -95,9 +95,9 @@
             <td class="text-center"><strong>Supplier Name </strong></td>
             <td class="text-center"><strong>Unit  </strong>
             </td>
-            <td class="text-center"><strong>Category</strong>
+            <td class="text-center"><strong>Generic</strong>
             </td>
-            <td class="text-center"><strong>Product Name</strong>
+            <td class="text-center"><strong>Brand</strong>
             </td>
             <td class="text-center"><strong>In Qty  </strong>
             </td>

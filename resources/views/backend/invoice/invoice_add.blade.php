@@ -134,7 +134,7 @@
                     <tr>
                         <td colspan="5"> Cash</td>
                         <td>
-                            <input type="text" name="cash" value="0" id="cash" class="form-control cash" >
+                            <input style="background-color: black; color:green; font-size:40px;" type="number" name="cash" value="0" id="cash" class="form-control cash" >
                         </td>
                      
                     </tr>
@@ -142,18 +142,22 @@
                     <tr>
                         <td colspan="5"> Change</td>
                         <td>
-                            <input type="text" name="Change" value="0" id="Change" class="form-control Change" readonly style="background-color: #ddd;" >
+                            <input style="background-color: black; color:green; font-size:40px;"  type="number" name="Change" value="0" id="Change" class="form-control Change" readonly style="background-color: #ddd;" >
                         </td>
                      
                     </tr>
 
                 </tbody>                
             </table><br>
-
+            @php
+            $id = Auth::user()->id;
+            $adminData = App\Models\User::find($id);
+            @endphp
 
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <textarea name="description" class="form-control" id="description" placeholder="Write Description Here"></textarea>
+                    {{-- <textarea name="description" type="hidden" class="form-control" id="description" placeholder="Write Description Here">{{ $adminData->name }}</textarea> --}}
+                    <input type="hidden" name="description" value="{{ $adminData->name }}">
                 </div>
             </div><br>
 
@@ -161,7 +165,7 @@
                 <div class="form-group col-md-3">
                     <label> Paid Status </label>
                     <select name="paid_status" id="paid_status" class="form-select">
-                        <option value="">Select Status </option>
+                 
                         <option value="full_paid">Full Paid </option>
                         <option value="full_due">Full Due </option>
                          <option value="partial_paid">Partial Paid </option>
@@ -174,7 +178,7 @@
             <div class="form-group col-md-9">
                 <label> Customer Name  </label>
                     <select name="customer_id" id="customer_id" class="form-select">
-                        <option value="">Select Customer </option>
+                   
                         @foreach($costomer as $cust)
                         <option value="{{ $cust->id }}">{{ $cust->name }} - {{ $cust->mobile_no }}</option>
                         @endforeach

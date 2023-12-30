@@ -33,13 +33,13 @@
                         <tr>
        
                             <th>Purhase No</th> 
-                            <th>Date </th>
-                            <th>Supplier</th>
+                            {{-- <th>Date </th> --}}
+                            {{-- <th>Supplier</th> --}}
                             <th>Brand</th> 
                             <th>Qty</th> 
                             <th>Unit Price</th> 
                             <th>Generic Name</th> 
-                            <th>Expiration Date</th>
+                            {{-- <th>Expiration Date</th> --}}
                             <th>Status</th>
                             <th>Action</th>
                             
@@ -52,13 +52,13 @@
             <tr>
     
                 <td> {{ $item->purchase_no }} </td> 
-                <td> {{ date('d-m-Y',strtotime($item->date))  }} </td> 
-                 <td> {{ $item['supplier']['name'] }} </td> 
+                {{-- <td> {{ date('d-m-Y',strtotime($item->date))  }} </td>  --}}
+                 {{-- <td> {{ $item['supplier']['name'] }} </td>  --}}
                  <td> {{ $item['category']['name'] }} </td> 
                  <td> {{ $item->buying_qty }} </td> 
                  <td> {{ $item->unit_price }} </td> 
                  <td> {{ $item['product']['name'] }} </td> 
-                 <td> {{ $item->description }} </td> 
+                 {{-- <td> {{ $item->description }} </td>  --}}
                  <td> 
                     @if($item->status == '0')
                     <span class="btn btn-warning">Pending</span>

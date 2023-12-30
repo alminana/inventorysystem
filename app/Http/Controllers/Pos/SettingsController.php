@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Settings;
+use App\Models\User;
 use Auth;
 use Image; 
 use Illuminate\Support\Carbon;
@@ -16,13 +17,23 @@ class SettingsController extends Controller
             return view('backend.settings.index',compact('setting'));
         } 
 
+        public function AccountAll(){
+            $user = User::latest()->get();
+            return view('backend.settings.user',compact('user'));
+        } 
 
-        public function SettingAdd(){
 
-            $setting = Settings::all();
-            return view('backend.settings.setting_add',compact('setting'));
+        public function AccountAdd(){
+
+            $user = User::latest()->get();
+            return view('backend.settings.setting_add',compact('user'));
         } // End Method 
     
+        public function SettingAdd(){
+
+            $user = User::latest()->get();
+            return view('backend.settings.setting_add',compact('user'));
+        } // End Method 
 
         public function SettingStore(Request $request){
 

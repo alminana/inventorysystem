@@ -121,8 +121,8 @@
         <thead>
         <tr>
             <td><strong>Sl </strong></td>
-            <td class="text-center"><strong>Category</strong></td>
-            <td class="text-center"><strong>Product Name</strong>
+            <td class="text-center"><strong>Generic</strong></td>
+            <td class="text-center"><strong>Brand</strong>
             </td>
             <td class="text-center"><strong>Current Stock</strong>
             </td>

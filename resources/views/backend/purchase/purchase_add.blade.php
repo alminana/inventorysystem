@@ -43,7 +43,7 @@
 
        <div class="col-md-4">
             <div class="md-3">
-                <label for="example-text-input" class="form-label">Brand</label>
+                <label for="example-text-input" class="form-label">Drug Name</label>
                 <select name="category_id" id="category_id" class="form-select select2" aria-label="Default select example">
                 <option selected="">Open this select menu</option>
                 
@@ -54,7 +54,7 @@
 
          <div class="col-md-3">
             <div class="md-2">
-                <label for="example-text-input" class="form-label">Geniric Name </label>
+                <label for="example-text-input" class="form-label">Brand </label>
                 <select name="product_id" id="product_id" class="form-select select2" aria-label="Default select example">
                 <option selected="">Open this select menu</option>
                
@@ -94,8 +94,8 @@
             <table class="table-sm table-bordered" width="100%" style="border-color: #ddd;">
                 <thead>
                     <tr>
+                        <th>Drug Name</th>
                         <th>Brand</th>
-                        <th>Generic Name</th>
                         <th>PSC/KG</th>
                         <th>Unit Price</th>
                         <th>Expiration Date</th>

@@ -110,12 +110,6 @@
             </ul>
         </li>
 
-                             
-
-
-
-
-
                             <li class="menu-title">Stock</li>
 
                             <li>
@@ -137,13 +131,10 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('setting.all') }}">All Settings</a></li>
+                                    <li><a href="{{ route('user.all') }}">All Account</a></li>
                                 </ul>
                             </li>
 
-                           
-
-                            
-                         
 
                         </ul>
                     </div>

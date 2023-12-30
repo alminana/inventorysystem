@@ -32,11 +32,10 @@
                         <thead>
                         <tr>
                             
-                            <th>Name</th> 
-                            <th>Generic Name</th> 
-                            <th>Supplier Name </th>
-                            <th>Unit</th>
                             <th>Brand</th> 
+                            <th>Drug Name</th> 
+                            <th>Supplier Name </th>
+                            <th>Unit</th> 
                             <th>Unit Price</th> 
                             <th>SRP Price</th> 
                             <th>Action</th>
@@ -53,7 +52,7 @@
                             <td> {{ $item['category']['name'] }} </td>
                             <td> {{ $item['supplier']['name'] }} </td> 
                             <td> {{ $item['unit']['name'] }} </td> 
-                            <td> {{ $item['category']['name'] }} </td>  
+                            {{-- <td> {{ $item['category']['name'] }} </td>   --}}
                             <td>   {{ $item->unit_price }}</td> 
                             <td>   {{ $item->srp_price }}</td> 
                             <td>
