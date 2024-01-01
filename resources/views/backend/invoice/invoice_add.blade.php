@@ -33,7 +33,7 @@
 
        <div class="col-md-3">
             <div class="md-3">
-                <label for="example-text-input" class="form-label">Category Name </label>
+                <label for="example-text-input" class="form-label">Generic Name </label>
                 <select name="category_id"  id="category_id" class="form-select select2" aria-label="Default select example">
                 <option selected="">Open this select menu</option>
                   @foreach($category as $cat)
@@ -46,7 +46,7 @@
 
          <div class="col-md-3">
             <div class="md-3">
-                <label for="example-text-input" class="form-label">Product Name </label>
+                <label for="example-text-input" class="form-label">Brand </label>
                 <select name="product_id" id="product_id" class="form-select select2" aria-label="Default select example">
                 <option selected="">Open this select menu</option>
                
@@ -161,23 +161,23 @@
                 </div>
             </div><br>
 
-            <div class="row">
+            <div type="hidden"  class="row">
                 <div class="form-group col-md-3">
                     <label> Paid Status </label>
-                    <select name="paid_status" id="paid_status" class="form-select">
+                    <select type="hidden"  name="paid_status" id="paid_status" class="form-select">
                  
                         <option value="full_paid">Full Paid </option>
                         <option value="full_due">Full Due </option>
                          <option value="partial_paid">Partial Paid </option>
                         
                     </select>
-        <input type="text" name="paid_amount" class="form-control paid_amount" placeholder="Enter Paid Amount" style="display:none;">
+        <input type="hidden"  name="paid_amount" class="form-control paid_amount" placeholder="Enter Paid Amount" style="display:none;">
                 </div>
 
 
-            <div class="form-group col-md-9">
+            <div type="hidden"  class="form-group col-md-9">
                 <label> Customer Name  </label>
-                    <select name="customer_id" id="customer_id" class="form-select">
+                    <select type="hidden"  name="customer_id" id="customer_id" class="form-select">
                    
                         @foreach($costomer as $cust)
                         <option value="{{ $cust->id }}">{{ $cust->name }} - {{ $cust->mobile_no }}</option>
@@ -190,15 +190,15 @@
 <!-- Hide Add Customer Form -->
 <div class="row new_customer" style="display:none">
     <div class="form-group col-md-4">
-        <input type="text" name="name" id="name" class="form-control" placeholder="Write Customer Name">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Write Senior Name">
     </div>
 
     <div class="form-group col-md-4">
-        <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Write Customer Mobile No">
+        <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Write Senior Mobile No">
     </div>
 
     <div class="form-group col-md-4">
-        <input type="email" name="email" id="email" class="form-control" placeholder="Write Customer Email">
+        <input type="text" name="email" id="email" class="form-control" placeholder="Write Senior ID No.">
     </div>
 </div>
 <!-- End Hide Add Customer Form -->

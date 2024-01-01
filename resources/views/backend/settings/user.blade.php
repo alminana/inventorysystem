@@ -35,7 +35,6 @@
                             <th>Name</th> 
                             <th>Email</th>
                             <th>Username </th>  
-                            <th>Role</th>
                             <th>Position</th>
                             <th>Action</th>
                         </thead>
@@ -49,10 +48,9 @@
                                     <td> {{$item->name}}</td> 
                                     <td> {{$item->email}}</td> 
                                     <td> {{$item->username}}</td> 
-                                    <td></td> 
-                                    <td></td> 
+                                    <td>{{$item->role}}</td> 
                                     <td>
-                                        <a href=""  class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
+                                        <a href="{{ route('edit.profile') }}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
 
                                         <a href=""  class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a>
                                 </td> 

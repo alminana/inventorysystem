@@ -49,13 +49,13 @@ class AdminController extends Controller
         $data->email = $request->email;
         $data->username = $request->username;
 
-        if ($request->file('profile_image')) {
-           $file = $request->file('profile_image');
+        // if ($request->file('profile_image')) {
+        //    $file = $request->file('profile_image');
 
-           $filename = date('YmdHi').$file->getClientOriginalName();
-           $file->move(public_path('upload/admin_images'),$filename);
-           $data['profile_image'] = $filename;
-        }
+        //    $filename = date('YmdHi').$file->getClientOriginalName();
+        //    $file->move(public_path('upload/admin_images'),$filename);
+        //    $data['profile_image'] = $filename;
+        // }
         $data->save();
 
         $notification = array(

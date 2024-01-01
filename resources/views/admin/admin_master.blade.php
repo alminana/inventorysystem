@@ -181,7 +181,7 @@
     
     
         // Setup - add a text input to each header cell
-        $('#tbAdresse thead th').each(function() 
+        $('#datatable thead th').each(function() 
         
         {
             var title = $(this).text();

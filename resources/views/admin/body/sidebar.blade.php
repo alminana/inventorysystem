@@ -132,6 +132,8 @@
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ route('setting.all') }}">All Settings</a></li>
                                     <li><a href="{{ route('user.all') }}">All Account</a></li>
+                                    <li><a  href="{{ route('user.add') }}">Register</a></li>
+
                                 </ul>
                             </li>
 

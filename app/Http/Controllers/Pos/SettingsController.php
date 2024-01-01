@@ -12,10 +12,7 @@ use Illuminate\Support\Carbon;
 class SettingsController extends Controller
 {
     
-        public function SettingAll(){
-            $setting = Settings::latest()->get();
-            return view('backend.settings.index',compact('setting'));
-        } 
+     
 
         public function AccountAll(){
             $user = User::latest()->get();
@@ -24,16 +21,48 @@ class SettingsController extends Controller
 
 
         public function AccountAdd(){
-
-            $user = User::latest()->get();
-            return view('backend.settings.setting_add',compact('user'));
+            return view('backend.settings.user_add');
         } // End Method 
+
     
-        public function SettingAdd(){
+        public function AccountStore(Request $request){
 
-            $user = User::latest()->get();
-            return view('backend.settings.setting_add',compact('user'));
-        } // End Method 
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'username' => ['required', 'string','max:255', 'unique:users'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                'role' => ['required', 'string', 'max:255'],
+                'position' => ['required', 'string', 'max:255'],
+            ]);  
+
+            User::insert([
+                'name' => $request->name,
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => $request->role,
+                'position' => $request->position,
+            ]);
+            $notification = array(
+                'message' => 'Company Details Inserted Successfully', 
+                'alert-type' => 'success'
+            );
+             return redirect()->route('setting.all')->with($notification); 
+        }
+
+        // --------------------------------------------- Setting 
+
+
+        public function SettingAll(){
+            $setting = Settings::latest()->get();
+            return view('backend.settings.index',compact('setting'));
+        } 
+
+        public function SettingAdd(){
+            return view('backend.settings.setting_add');
+        }
+  
 
         public function SettingStore(Request $request){
 

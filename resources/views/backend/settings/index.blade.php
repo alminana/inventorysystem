@@ -31,19 +31,16 @@
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th width="5%">Sl</th>
+                  
                             <th>Company</th> 
                             <th>Address</th> 
                             <th>Tin</th> 
                             <th>Vat</th> 
                             <th>Image</th>
-                            <th>Owner</th> 
-                            <th>Telephone</th> 
-                            <th>Email</th> 
-                            <th>SSS</th>
-                            <th>Pag-ibig</th>
-                            <th>Philhealth</th>   
-                            <th width="20%">Action</th>
+                    
+                     
+                       
+                            <th width="6%">Action</th>
                             
                         </thead>
 
@@ -52,18 +49,15 @@
                         	 
                         	@foreach($setting as $key => $item)
                         <tr>
-                            <td> {{ $key+1}} </td>
+               
                             <td> {{ $item->companyname }} </td>  
                             <td> {{ $item->address }} </td>  
                             <td> {{ $item->tin }} </td>  
                             <td> {{ $item->vat }} </td>  
                             <td> <img src="{{ asset( $item->image ) }}" style="width:60px; height:50px"> </td> 
-                            <td> {{ $item->owner }} </td>  
-                            <td> {{ $item->tel }} </td>  
-                            <td> {{ $item->email }} </td>  
-                            <td> {{ $item->sss }} </td>  
-                            <td> {{ $item->pagibig }} </td>  
-                            <td> {{ $item->philhealth }} </td>  
+        
+                \
+                         
 
                             <td>
    <a href="{{ route('setting.edit',$item->id) }}"  class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
